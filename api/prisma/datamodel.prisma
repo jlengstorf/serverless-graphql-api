@@ -1,0 +1,21 @@
+type User {
+  id: ID! @id
+  name: String!
+}
+
+type Snap {
+  id: ID! @id
+  haiku: Haiku!
+  user: User!
+}
+
+type Haiku {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  title: String!
+  slug: String! @unique
+  content: String!
+  author: User!
+  snaps: [Snap!]!
+}

@@ -1,0 +1,5 @@
+endpoint: https://us1.prisma.sh/jason-lengstorf-418dad/serverless-graphql-api/dev
+datamodel: datamodel.prisma
+generate:
+  - generator: javascript-client
+    output: ./client/
