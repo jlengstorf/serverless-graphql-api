@@ -1,8 +1,7 @@
 [build]
   # This is where the website lives.
-  base = "site"
   command = "yarn build"
-  publish = "public"
+  publish = "site/public"
 
   # This is where the serverless functions live.
   functions = "api"
