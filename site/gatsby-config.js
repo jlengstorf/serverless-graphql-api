@@ -9,7 +9,7 @@ module.exports = {
       options: {
         typeName: 'Haiku',
         fieldName: 'haiku',
-        url: 'http://localhost:8888/.netlify/functions/graphql'
+        url: `${NETLIFY_FUNCTIONS_URL}/.netlify/functions/graphql`
       }
     }
   ]
