@@ -4,13 +4,13 @@ require('dotenv').config({
 
 module.exports = {
   plugins: [
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'Haiku',
-        fieldName: 'haiku',
-        url: `${process.env.NETLIFY_FUNCTIONS_URL}/.netlify/functions/graphql`
-      }
-    }
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     typeName: 'Haiku',
+    //     fieldName: 'haiku',
+    //     url: `${process.env.NETLIFY_FUNCTIONS_URL}/.netlify/functions/graphql`
+    //   }
+    // }
   ]
 };
