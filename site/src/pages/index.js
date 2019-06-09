@@ -1,6 +1,6 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import Layout from '../components/layout';
+// import { graphql, Link } from 'gatsby';
+// import Layout from '../components/layout';
 
 // export const query = graphql`
 //   {
@@ -20,7 +20,7 @@ import Layout from '../components/layout';
 // `;
 
 const Index = ({ data }) => (
-  <Layout>
+  <div>
     <p>temp!</p>
     {/* {data.haiku.allHaiku.map(haiku => (
       <article key={haiku.id}>
@@ -36,7 +36,7 @@ const Index = ({ data }) => (
         </footer>
       </article>
     ))} */}
-  </Layout>
+  </div>
 );
 
 export default Index;
