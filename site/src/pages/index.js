@@ -1,28 +1,27 @@
 import React from 'react';
-// import { graphql, Link } from 'gatsby';
-// import Layout from '../components/layout';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/layout';
 
-// export const query = graphql`
-//   {
-//     haiku {
-//       allHaiku {
-//         id
-//         title
-//         slug
-//         content
-//         author {
-//           name
-//         }
-//         snapCount
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  {
+    haiku {
+      allHaiku {
+        id
+        title
+        slug
+        content
+        author {
+          name
+        }
+        snapCount
+      }
+    }
+  }
+`;
 
 const Index = ({ data }) => (
-  <div>
-    <p>temp!</p>
-    {/* {data.haiku.allHaiku.map(haiku => (
+  <Layout>
+    {data.haiku.allHaiku.map(haiku => (
       <article key={haiku.id}>
         <h2>
           <Link to={`/${haiku.slug}`}>{haiku.title}</Link>
@@ -35,8 +34,8 @@ const Index = ({ data }) => (
           </p>
         </footer>
       </article>
-    ))} */}
-  </div>
+    ))}
+  </Layout>
 );
 
 export default Index;
