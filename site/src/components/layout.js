@@ -5,7 +5,7 @@ import IdentityModal, {
   useIdentityContext
 } from 'react-netlify-identity-widget';
 import AddHaiku from './add-haiku';
-import { useMutation } from 'react-apollo-hooks';
+import { useMutation } from '@apollo/react-hooks';
 
 const ADD_USER = gql`
   mutation($netlifyID: ID!, $name: String!) {
@@ -18,7 +18,7 @@ const ADD_USER = gql`
 const Layout = ({ children }) => {
   const [netlifyID, setNetlifyID] = useState(false);
   const [name, setName] = useState('');
-  const addUser = useMutation(ADD_USER, {
+  const [addUser, { data }] = useMutation(ADD_USER, {
     variables: { netlifyID, name }
   });
   const identity = useIdentityContext();
@@ -27,9 +27,9 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (identity.user && identity.user.id && identity.user.user_metadata) {
       async function updateUser() {
-        const mutationResult = await addUser();
+        await addUser();
 
-        console.log(mutationResult);
+        console.log(data);
       }
       setNetlifyID(identity.user.id);
       setName(identity.user.user_metadata.full_name);

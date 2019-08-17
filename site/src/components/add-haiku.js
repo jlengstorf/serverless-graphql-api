@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { gql } from 'apollo-boost';
-import { useMutation } from 'react-apollo-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import { useIdentityContext } from 'react-netlify-identity-widget';
 
 const ADD_HAIKU = gql`
@@ -36,7 +36,7 @@ const AddHaiku = () => {
   const [slug, setSlug] = useState('');
   const [content, setContent] = useState('');
 
-  const addHaiku = useMutation(ADD_HAIKU, {
+  const [addHaiku, { loading, error, data }] = useMutation(ADD_HAIKU, {
     variables: {
       content,
       title,
@@ -52,9 +52,9 @@ const AddHaiku = () => {
         onSubmit={event => {
           event.preventDefault();
 
-          const mutationResult = addHaiku();
+          addHaiku();
 
-          console.log(mutationResult);
+          console.log({ loading, error, data });
         }}
       >
         <label htmlFor="title">Title</label>

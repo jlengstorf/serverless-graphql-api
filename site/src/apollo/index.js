@@ -1,7 +1,7 @@
 import React from 'react';
 import ApolloClient from 'apollo-boost';
 import fetch from 'isomorphic-fetch';
-import { ApolloProvider } from 'react-apollo-hooks';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 const client = new ApolloClient({
   uri: `${process.env.GATSBY_NETLIFY_FUNCTIONS_URI}/graphql`,

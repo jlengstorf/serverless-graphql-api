@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { gql } from 'apollo-boost';
-import { useQuery } from 'react-apollo-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import Layout from '../components/layout';
 
 export const GATSBY_QUERY = graphql`
