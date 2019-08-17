@@ -191,7 +191,13 @@ export type HaikuOrderByInput =
   | "content_ASC"
   | "content_DESC";
 
-export type UserOrderByInput = "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC";
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "netlifyID_ASC"
+  | "netlifyID_DESC"
+  | "name_ASC"
+  | "name_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -206,6 +212,7 @@ export type HaikuWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface UserUpdateDataInput {
+  netlifyID?: Maybe<String>;
   name?: Maybe<String>;
 }
 
@@ -251,6 +258,20 @@ export interface UserWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  netlifyID?: Maybe<String>;
+  netlifyID_not?: Maybe<String>;
+  netlifyID_in?: Maybe<String[] | String>;
+  netlifyID_not_in?: Maybe<String[] | String>;
+  netlifyID_lt?: Maybe<String>;
+  netlifyID_lte?: Maybe<String>;
+  netlifyID_gt?: Maybe<String>;
+  netlifyID_gte?: Maybe<String>;
+  netlifyID_contains?: Maybe<String>;
+  netlifyID_not_contains?: Maybe<String>;
+  netlifyID_starts_with?: Maybe<String>;
+  netlifyID_not_starts_with?: Maybe<String>;
+  netlifyID_ends_with?: Maybe<String>;
+  netlifyID_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
   name_not?: Maybe<String>;
   name_in?: Maybe<String[] | String>;
@@ -316,6 +337,7 @@ export interface SnapSubscriptionWhereInput {
 }
 
 export interface UserUpdateManyMutationInput {
+  netlifyID?: Maybe<String>;
   name?: Maybe<String>;
 }
 
@@ -347,6 +369,7 @@ export interface HaikuUpdateWithoutSnapsDataInput {
 
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
+  netlifyID: String;
   name: String;
 }
 
@@ -408,6 +431,7 @@ export interface HaikuUpdateInput {
 }
 
 export interface UserUpdateInput {
+  netlifyID?: Maybe<String>;
   name?: Maybe<String>;
 }
 
@@ -532,6 +556,7 @@ export interface HaikuCreateOneWithoutSnapsInput {
 
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  netlifyID?: Maybe<String>;
 }>;
 
 export interface HaikuUpdateOneRequiredWithoutSnapsInput {
@@ -547,6 +572,7 @@ export interface NodeNode {
 
 export interface UserPreviousValues {
   id: ID_Output;
+  netlifyID: String;
   name: String;
 }
 
@@ -554,6 +580,7 @@ export interface UserPreviousValuesPromise
   extends Promise<UserPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  netlifyID: () => Promise<String>;
   name: () => Promise<String>;
 }
 
@@ -561,6 +588,7 @@ export interface UserPreviousValuesSubscription
   extends Promise<AsyncIterator<UserPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  netlifyID: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
 }
 
@@ -650,11 +678,13 @@ export interface HaikuConnectionSubscription
 
 export interface User {
   id: ID_Output;
+  netlifyID: String;
   name: String;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
+  netlifyID: () => Promise<String>;
   name: () => Promise<String>;
 }
 
@@ -662,6 +692,7 @@ export interface UserSubscription
   extends Promise<AsyncIterator<User>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  netlifyID: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
 }
 
@@ -669,6 +700,7 @@ export interface UserNullablePromise
   extends Promise<User | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  netlifyID: () => Promise<String>;
   name: () => Promise<String>;
 }
 

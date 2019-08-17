@@ -12,10 +12,14 @@
     "@reach/dialog": "^0.2.9",
     "@reach/tabs": "^0.1.6",
     "@reach/visually-hidden": "^0.1.4",
+    "apollo-boost": "^0.4.2",
     "dotenv": "^8.0.0",
     "gatsby": "^2.8.6",
     "gatsby-source-graphql": "^2.0.18",
+    "graphql": "^14.3.1",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.8.6",
+    "react-apollo-hooks": "^0.5.0",
     "react-dom": "^16.8.6",
     "react-netlify-identity-widget": "^0.1.1"
   }
