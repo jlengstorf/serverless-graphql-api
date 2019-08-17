@@ -424,6 +424,7 @@ type Subscription {
 
 type User {
   id: ID!
+  netlifyID: String!
   name: String!
 }
 
@@ -435,6 +436,7 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
+  netlifyID: String!
   name: String!
 }
 
@@ -451,12 +453,15 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
+  netlifyID_ASC
+  netlifyID_DESC
   name_ASC
   name_DESC
 }
 
 type UserPreviousValues {
   id: ID!
+  netlifyID: String!
   name: String!
 }
 
@@ -479,14 +484,17 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateDataInput {
+  netlifyID: String
   name: String
 }
 
 input UserUpdateInput {
+  netlifyID: String
   name: String
 }
 
 input UserUpdateManyMutationInput {
+  netlifyID: String
   name: String
 }
 
@@ -517,6 +525,20 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  netlifyID: String
+  netlifyID_not: String
+  netlifyID_in: [String!]
+  netlifyID_not_in: [String!]
+  netlifyID_lt: String
+  netlifyID_lte: String
+  netlifyID_gt: String
+  netlifyID_gte: String
+  netlifyID_contains: String
+  netlifyID_not_contains: String
+  netlifyID_starts_with: String
+  netlifyID_not_starts_with: String
+  netlifyID_ends_with: String
+  netlifyID_not_ends_with: String
   name: String
   name_not: String
   name_in: [String!]
@@ -538,6 +560,7 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  netlifyID: String
 }
 `
       }

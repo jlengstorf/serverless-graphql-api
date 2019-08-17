@@ -41,16 +41,17 @@ const typeDefs = gql`
     title: String!
     slug: String!
     content: String!
-    userID: String!
+    netlifyID: String!
   }
 
   input UserInput {
+    netlifyID: ID!
     name: String!
   }
 
   input SnapInput {
     haikuID: String!
-    userID: String!
+    netlifyID: String!
   }
 `;
 
@@ -74,20 +75,29 @@ const resolvers = {
     user: parent => prisma.snap({ id: parent.id }).user()
   },
   Mutation: {
-    addUser: (_, { input }) => prisma.createUser(input),
+    addUser: (_, { input }) =>
+      prisma.upsertUser({
+        where: {
+          netlifyID: input.netlifyID
+        },
+        update: {
+          name: input.name
+        },
+        create: input
+      }),
     addHaiku: (_, { input }) =>
       prisma.createHaiku({
         title: input.title,
         slug: input.slug,
         content: input.content,
         author: {
-          connect: { id: input.userID }
+          connect: { netlifyID: input.netlifyID }
         }
       }),
     addSnap: (_, { input }) =>
       prisma.createSnap({
         haiku: { connect: { id: input.haikuID } },
-        user: { connect: { id: input.userID } }
+        user: { connect: { id: input.netlifyID } }
       })
   }
 };
@@ -97,4 +107,9 @@ const server = new ApolloServer({
   resolvers
 });
 
-exports.handler = server.createHandler();
+exports.handler = server.createHandler({
+  cors: {
+    origin: '*',
+    credentials: true
+  }
+});
